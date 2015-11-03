@@ -17,9 +17,6 @@
 # include "carre.h"
 # include "environment.h"
 
-# define HEIGHT 800
-# define WIDTH 1400
-
 # define ABS(x) (x < 0 ? -x : x)
 # define PI 3.141592653589793
 

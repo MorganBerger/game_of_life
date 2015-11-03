@@ -4,9 +4,6 @@
 
 # include "libgraph.h"
 
-# define HEIGHT 600
-# define WIDTH 600
-
 int     key_handle(int k_code, t_env *e);
 
 #endif

@@ -4,6 +4,9 @@
 
 # include "point.h"
 
+# define HEIGHT 600
+# define WIDTH 600
+
 typedef	struct		s_env
 {
     void		*mlx;
