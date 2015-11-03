@@ -4,7 +4,6 @@
 #include <mlx.h>
 #include <stdlib.h>
 
-
 void    draw(t_env *e)
 {
     e->img = mlx_new_image(e->mlx, 420, 420);
