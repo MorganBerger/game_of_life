@@ -79,7 +79,8 @@ int     main(int ac, char **av)
     env.win = mlx_new_window(env.mlx, WIDTH, HEIGHT, "G_O_L");
 
     mlx_expose_hook(env.win, expose_hook, &env);
-    mlx_key_hook(env.win, key_handle, &env);
+    //mlx_key_hook(env.win, key_handle, &env);
+    mlx_hook(env.win, 2, (1L << 0), key_handle, &env);
     mlx_mouse_hook(env.win, mouse_hook, &env);
     mlx_loop(env.mlx);
 
