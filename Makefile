@@ -13,8 +13,10 @@
 NAME = gol
 
 SRC =   main.c \
-        key_handle.c
-	
+        key_handle.c \
+        make_grille.c \
+	tab_processing.c
+
 OBJ = $(SRC:.c=.o)
 
 GCC = gcc -Wall -Werror -Wextra
@@ -62,5 +64,7 @@ fclean: clean
 		@$(RM) $(NAME)
 
 re:		fclean all	
+
+launch: all; ./gol
 
 .PHONY: .clean .fclean

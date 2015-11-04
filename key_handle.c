@@ -4,14 +4,61 @@
 #include <mlx.h>
 #include <stdlib.h>
 
-int key_handle(int k_code, t_env *e)
+#include <stdio.h>
+
+int mouse_hook(int button, int x, int y, t_env *e)
 {
-    ft_putnbrendl(k_code);
+
+    (void)e;
+    (void)button;
+
+    x -= 2;
+    y -= 3;
+
+    x = (int)x / TILE_S;
+    y = (int)y / TILE_S;
+
+    if (x >= 0 && y >=0)
+        e->tab[y][x].alive = e->tab[y][x].alive == 0 ? 1 : 0;
+
+    draw(e);
+
+    return (0);
+}
+
+void    change_state(t_env *e)
+{
+    int x;
+    int y;
+
+    y = 0;
+    while (y < e->nb_line)
+    {
+        x = 0;
+        while (x < e->nb_col)
+        {
+            e->tab[y][x].alive = e->tab[y][x].is_alive_next;
+            e->tab[y][x].is_alive_next = -1;
+            x++;
+        }
+        y++;
+    }
+}
+
+int     key_handle(int k_code, t_env *e)
+{
+    //ft_putnbrendl(k_code);
     if (k_code == 53)
     {
         if (e->img)
             mlx_destroy_image(e->mlx, e->img);
         exit (0);
+    }
+    else if (k_code == 49)
+    {
+        tab_processing(e);
+        change_state(e);
+        draw(e);
     }
     return (0);
 }

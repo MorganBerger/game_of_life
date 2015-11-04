@@ -6,14 +6,27 @@
 
 void    draw(t_env *e)
 {
-    e->img = mlx_new_image(e->mlx, 420, 420);
+    int x;
+    int y;
+    
+    e->img = mlx_new_image(e->mlx, WIDTH, HEIGHT);
     e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->line_size), &(e->endian));
     e->bpp /= 8;
 
-    e->r = 255;
-    e->g = 255;
-    e->b = 255;
-
+    make_grille(e);
+   
+    y = 0;
+    while (y < e->nb_line)
+    {
+        x = 0;
+        while (x < e->nb_col)
+        {
+            if (e->tab[y][x].alive == 1)
+                put_filled_carre(e, e->tab[y][x]);
+            x++;
+        }
+        y++;
+    }
     mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }
 
@@ -23,6 +36,37 @@ int     expose_hook(t_env *e)
     return (0);
 }
 
+void    set_env(t_env *e)
+{
+    int x;
+    int y;
+    
+    e->r = 77;
+    e->g = 88;
+    e->b = 99;
+    e->nb_col = WIDTH / TILE_S;
+    e->nb_line = HEIGHT / TILE_S; 
+    x = 0;
+    y = 0;
+    e->tab = (t_carre**)malloc(sizeof(t_carre*) * e->nb_line);
+    while (y < e->nb_line)
+    {
+        x = 0;
+        e->tab[y] = (t_carre*)malloc(sizeof(t_carre) * e->nb_col);
+        while (x < e->nb_col)
+        {
+            e->tab[y][x].pos.x = x * TILE_S; 
+            e->tab[y][x].pos.y = y * TILE_S;
+            e->tab[y][x].size = TILE_S;
+            e->tab[y][x].alive = 0;
+            e->tab[y][x].is_alive_next = -1;
+
+            x++;
+        }
+        y++;
+    }
+}
+
 int     main(int ac, char **av)
 {
     t_env   env;
@@ -30,12 +74,14 @@ int     main(int ac, char **av)
     (void)ac;
     (void)av;
 
+    set_env(&env);
     env.mlx = mlx_init();    
-    env.win = mlx_new_window(env.mlx, 420, 420, "42");
+    env.win = mlx_new_window(env.mlx, WIDTH, HEIGHT, "G_O_L");
 
     mlx_expose_hook(env.win, expose_hook, &env);
     mlx_key_hook(env.win, key_handle, &env);
+    mlx_mouse_hook(env.win, mouse_hook, &env);
     mlx_loop(env.mlx);
-    
+
     return (0);
 }

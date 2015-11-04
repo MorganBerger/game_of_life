@@ -13,7 +13,7 @@
 NAME = libgraph.a
 
 SRC = put_circle.c put_line.c put_pixel.c set_color.c\
-	  put_carre.c put_verline.c
+	  put_carre.c put_verline.c put_filled_carre.c
 
 FLAGS = -Wall -Werror -Wextra
 

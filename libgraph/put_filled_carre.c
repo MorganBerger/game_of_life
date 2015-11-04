@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_carre.c                                        :+:      :+:    :+:   */
+/*   put_filled_carre.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,23 +13,20 @@
 #include "libgraph.h"
 #include "libft.h"
 
-void	put_carre(t_env *e, t_carre carre)
+void	put_filled_carre(t_env *e, t_carre carre)
 {
-	t_point t;
-	t_point	t1;
+    t_point p[2];
 
-	t.x = (carre.pos.x - (carre.size / 2));
-	t.y = (carre.pos.y + (carre.size / 2));
-	t1.x = (carre.pos.x + (carre.size / 2));
-	t1.y = (carre.pos.y + (carre.size / 2));
-	put_line(e, t, t1);
-	t.x = (carre.pos.x + (carre.size / 2));
-	t.y = (carre.pos.y - (carre.size / 2));
-	put_line(e, t, t1);
-	t1.x = (carre.pos.x - (carre.size / 2));
-	t1.y = (carre.pos.y - (carre.size / 2));
-	put_line(e, t, t1);
-	t.x = (carre.pos.x - (carre.size / 2));
-	t.y = (carre.pos.y + (carre.size / 2));
-	put_line(e, t, t1);
+    p[0].x = carre.pos.x;
+    p[0].y = carre.pos.y;
+
+    p[1].x = carre.pos.x + carre.size;
+    p[1].y = carre.pos.y;
+    
+    while (p[0].y < carre.pos.y + carre.size)
+    {
+        put_line(e, p[0], p[1]);
+        p[0].y++;
+        p[1].y++;
+    }
 }

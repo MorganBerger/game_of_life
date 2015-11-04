@@ -3,9 +3,12 @@
 # define ENVIRONMENT_H
 
 # include "point.h"
+# include "carre.h"
 
-# define HEIGHT 600
-# define WIDTH 600
+# define HEIGHT 1200
+# define WIDTH 1200
+
+# define TILE_S 20
 
 typedef	struct		s_env
 {
@@ -27,34 +30,11 @@ typedef	struct		s_env
     int			img_h;
     int			img_w;
 
-    int			*limits;
-    int			**map;
+    int                 nb_col;
+    int                 nb_line;
 
-    t_point		pos;
-    t_point		dir;
-    t_point		plane;
-    t_point		camera;
-    t_point		ray_pos;
-    t_point		ray_dir;
-    t_point		map_index;
-    t_point		side_dist;
-    t_point		d_dist;
-    t_point		step;
+    t_carre             **tab;
 
-    double		perpwalldist;
-
-    int			hit;
-    int			side;
-
-    int			lineheight;
-    int			drawstart;
-    int			drawend;
-
-    double		move_speed;
-    double		rot_speed;
-
-    double		olddirx;
-    double		oldplanex;
 }		        t_env;
 
 #endif

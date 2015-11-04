@@ -28,5 +28,6 @@ void				put_verline(t_env *e, int x, int y_start, int y_end);
 void				put_circle(t_env *e, int posx, int posy, int r);
 void				put_carre(t_env *e, t_carre carre);
 void				set_color(t_env *e, int r, int g, int b);
+void	                        put_filled_carre(t_env *e, t_carre carre);
 
 #endif

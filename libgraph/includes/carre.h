@@ -9,9 +9,10 @@ typedef struct		s_carre
     t_point		pos;
 
     int			size;
+    
+    int                 alive;
+    int                 is_alive_next;
 
-    struct s_carre	*left;
-    struct s_carre	*right;
 }			t_carre;
 
 #endif

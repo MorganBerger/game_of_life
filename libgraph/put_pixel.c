@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "libgraph.h"
+#include "libft.h"
 
 int		put_pixel(t_env *e, int x, int y)
 {
-	if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
+        if (x > 0 && x < WIDTH && y > 0 && y < HEIGHT)
 	{
-		e->data[x * e->bpp + y * e->line_size] = e->b;
+                e->data[x * e->bpp + y * e->line_size] = e->b;
 		e->data[(x * e->bpp + y * e->line_size) + 1] = e->g;
 		e->data[(x * e->bpp + y * e->line_size) + 2] = e->r;
 	}
