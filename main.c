@@ -3,6 +3,8 @@
 
 #include <mlx.h>
 #include <stdlib.h>
+#include <time.h>
+
 
 void    draw(t_env *e)
 {
@@ -40,6 +42,7 @@ void    set_env(t_env *e)
 {
     int x;
     int y;
+    int random_number;
     
     e->r = 77;
     e->g = 88;
@@ -55,10 +58,12 @@ void    set_env(t_env *e)
         e->tab[y] = (t_carre*)malloc(sizeof(t_carre) * e->nb_col);
         while (x < e->nb_col)
         {
+            random_number = rand() % 100 + 1;
+
             e->tab[y][x].pos.x = x * TILE_S; 
             e->tab[y][x].pos.y = y * TILE_S;
             e->tab[y][x].size = TILE_S;
-            e->tab[y][x].alive = 0;
+            e->tab[y][x].alive = random_number > 75 ? 1 : 0;
             e->tab[y][x].is_alive_next = -1;
 
             x++;
@@ -73,6 +78,8 @@ int     main(int ac, char **av)
 
     (void)ac;
     (void)av;
+
+    srand(time(NULL));
 
     set_env(&env);
     env.mlx = mlx_init();    
