@@ -4,6 +4,7 @@
 
 # include "point.h"
 # include "carre.h"
+# include "color.h"
 
 # define HEIGHT 1200
 # define WIDTH 1200
@@ -34,6 +35,11 @@ typedef	struct		s_env
     int                 nb_line;
 
     t_carre             **tab;
+
+    t_color             fond;
+    t_color             grille;
+    t_color             square_color;
+    t_color             square_color2;
 
 }		        t_env;
 

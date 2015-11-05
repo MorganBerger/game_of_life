@@ -56,6 +56,7 @@ int     key_handle(int k_code, t_env *e)
     }
     else if (k_code == 49)
     {
+        //usleep(10000);
         tab_processing(e);
         change_state(e);
         draw(e);

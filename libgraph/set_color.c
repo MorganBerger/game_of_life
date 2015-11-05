@@ -12,9 +12,9 @@
 
 #include "libgraph.h"
 
-void	set_color(t_env *e, int r, int g, int b)
+void	set_color(t_env *e, t_color color)
 {
-	e->r = r;
-	e->g = g;
-	e->b = b;
+	e->r = color.r;
+	e->g = color.g;
+	e->b = color.b;
 }

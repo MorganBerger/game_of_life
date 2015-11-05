@@ -15,6 +15,7 @@
 
 # include "point.h"
 # include "carre.h"
+# include "color.h"
 # include "environment.h"
 
 # define ABS(x) (x < 0 ? -x : x)
@@ -27,7 +28,7 @@ void				put_line(t_env *e, t_point p1, t_point p2);
 void				put_verline(t_env *e, int x, int y_start, int y_end);
 void				put_circle(t_env *e, int posx, int posy, int r);
 void				put_carre(t_env *e, t_carre carre);
-void				set_color(t_env *e, int r, int g, int b);
+void				set_color(t_env *e, t_color color);
 void	                        put_filled_carre(t_env *e, t_carre carre);
 
 #endif
