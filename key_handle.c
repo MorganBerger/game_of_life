@@ -45,6 +45,25 @@ void    change_state(t_env *e)
     }
 }
 
+void    clear_grille(t_env *e)
+{
+    int i;
+    int y;
+
+    i = 0;
+    while (i < e->nb_line)
+    {
+        y = 0;
+        while (y < e->nb_col)
+        {
+            e->tab[i][y].alive = 0;
+            e->tab[i][y].is_alive_next = -1;
+            y++;
+        }
+        i++;
+    }
+}
+
 int     key_handle(int k_code, t_env *e)
 {
     //ft_putnbrendl(k_code);
@@ -56,10 +75,13 @@ int     key_handle(int k_code, t_env *e)
     }
     else if (k_code == 49)
     {
-        //usleep(10000);
         tab_processing(e);
         change_state(e);
-        draw(e);
     }
+    else if (k_code == 8) // clear
+    {
+        clear_grille(e); 
+    }
+    draw(e);
     return (0);
 }
