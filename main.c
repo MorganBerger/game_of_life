@@ -78,8 +78,8 @@ void    set_env(t_env *e)
             e->tab[y][x].pos.x = x * TILE_S; 
             e->tab[y][x].pos.y = y * TILE_S;
             e->tab[y][x].size = TILE_S;
-            e->tab[y][x].alive = 0;//random_number > 75 ? 1 : 0;
-            e->tab[y][x].is_alive_next = -1;
+            e->tab[y][x].alive = 0;//random_number > 90 ? 1 : 0;
+            e->tab[y][x].is_alive_next = 0;
             x++;
         }
         y++;

@@ -38,7 +38,7 @@ void    change_state(t_env *e)
         while (x < e->nb_col)
         {
             e->tab[y][x].alive = e->tab[y][x].is_alive_next;
-            e->tab[y][x].is_alive_next = -1;
+            e->tab[y][x].is_alive_next = 0;
             x++;
         }
         y++;
