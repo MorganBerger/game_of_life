@@ -88,18 +88,10 @@ int     process_all(t_env *e, int x, int y)
 {
     int res;
 
-    res = 0;
-    res += tl(e, x, y);
-    res += t(e, x, y);
-    res += tr(e, x, y);
-    res += r(e, x, y); 
-    res += br(e, x, y); 
-    res += b(e, x, y); 
-    res += bl(e, x, y); 
-    res += l(e, x, y); 
+    res =   tl(e, x, y) + t(e, x, y) + tr(e, x, y) + \
+            r(e, x, y) + br(e, x, y) + b(e, x, y) + \
+            bl(e, x, y) + l(e, x, y); 
     
-    //ft_putstr("res : ");
-    //ft_putnbrendl(res);
     return (res);
 }
 
