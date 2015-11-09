@@ -57,7 +57,7 @@ void    clear_grille(t_env *e)
         while (y < e->nb_col)
         {
             e->tab[i][y].alive = 0;
-            e->tab[i][y].is_alive_next = -1;
+            e->tab[i][y].is_alive_next = 0;
             y++;
         }
         i++;
@@ -75,7 +75,6 @@ int     key_handle(int k_code, t_env *e)
     }
     else if (k_code == 49)
     {
-        tab_processing(e);
         change_state(e);
     }
     else if (k_code == 8) // clear

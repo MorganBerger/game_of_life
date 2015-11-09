@@ -40,6 +40,7 @@ typedef	struct		s_env
     t_color             grille;
     t_color             square_color;
     t_color             square_color2;
+    t_color             red;
 
 }		        t_env;
 

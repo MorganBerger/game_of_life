@@ -67,4 +67,5 @@ re:		fclean all
 
 launch: all; ./gol
 
+
 .PHONY: .clean .fclean

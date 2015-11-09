@@ -14,6 +14,8 @@ void    draw(t_env *e)
     e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->line_size), &(e->endian));
     e->bpp /= 8;
 
+    tab_processing(e);
+
     make_fond(e);
    
     y = 0;
@@ -24,7 +26,16 @@ void    draw(t_env *e)
         {
             if (e->tab[y][x].alive == 1)
             {
-                set_color(e, e->square_color);
+                if (e->tab[y][x].is_alive_next == 1)
+                    set_color(e, e->square_color);
+                else
+                    set_color(e, e->red);
+                
+                put_filled_carre(e, e->tab[y][x]); 
+            }
+            else if (e->tab[y][x].is_alive_next == 1)
+            {
+                set_color(e, e->square_color2); 
                 put_filled_carre(e, e->tab[y][x]); 
             }
             x++;
@@ -33,6 +44,7 @@ void    draw(t_env *e)
     }
     make_grille(e);
     mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+
 }
 
 int     expose_hook(t_env *e)
@@ -52,9 +64,12 @@ void    set_colors(t_env *e)
     e->square_color.r = 154;
     e->square_color.g = 176;
     e->square_color.b = 198;
-    e->square_color2.r = 100;
-    e->square_color2.g = 100;
-    e->square_color2.b = 100;
+    e->square_color2.r = 0;
+    e->square_color2.g = 255;
+    e->square_color2.b = 0;
+    e->red.r = 255;
+    e->red.g = 0;
+    e->red.b = 0;
 }
 
 void    set_env(t_env *e)
@@ -78,7 +93,7 @@ void    set_env(t_env *e)
             e->tab[y][x].pos.x = x * TILE_S; 
             e->tab[y][x].pos.y = y * TILE_S;
             e->tab[y][x].size = TILE_S;
-            e->tab[y][x].alive = 0;//random_number > 90 ? 1 : 0;
+            e->tab[y][x].alive = random_number > 90 ? 1 : 0;
             e->tab[y][x].is_alive_next = 0;
             x++;
         }
