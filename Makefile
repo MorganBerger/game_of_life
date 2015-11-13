@@ -15,7 +15,8 @@ NAME = gol
 SRC =   main.c \
         key_handle.c \
         make_grille.c \
-	tab_processing.c
+	tab_processing.c \
+        dead_or_alive.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -34,6 +35,17 @@ LIBDIRS = -L libgraph/ -lgraph -L libft/ -lft
 MLXFLAGS = -framework OpenGL -framework AppKit mlx/libmlx.a
 
 RM = rm -rf
+
+
+PREV = \033[
+NEXT = m
+
+VERT = $(PREV)1;32$(NEXT)
+ROUGE = $(PREV)0;31$(NEXT)
+NEUTRE = $(PREV)0;$(NEXT)
+
+DONE = echo "$(VERT)Done.$(NEUTRE)"
+
 
 $(NAME): $(OBJ)
 		@(cd $(LIBFTDIR) && $(MAKE))
@@ -67,5 +79,8 @@ re:		fclean all
 
 launch: all; ./gol
 
+life: all; ./gol life
+
+seeds: all; ./gol seeds
 
 .PHONY: .clean .fclean

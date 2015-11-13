@@ -95,22 +95,6 @@ int     process_all(t_env *e, int x, int y)
     return (res);
 }
 
-void    dead_or_alive(t_env *e, int x, int y, int count)
-{
-    if (count < 2 || count > 3)
-    {
-        e->tab[y][x].is_alive_next = 0;
-    }
-    if (count == 3)
-    {
-        e->tab[y][x].is_alive_next = 1;
-    }
-    if (count == 2)
-    {
-        e->tab[y][x].is_alive_next = e->tab[y][x].alive;
-    }
-}
-
 void    tab_processing(t_env *e)
 {
     int x;
@@ -124,7 +108,7 @@ void    tab_processing(t_env *e)
         while (x < e->nb_col)
         {
             count = process_all(e, x, y);
-            dead_or_alive(e, x, y, count);
+            e->f(&(e->tab[y][x]), count);
             x++;
         }
         y++;

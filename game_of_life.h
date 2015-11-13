@@ -12,5 +12,7 @@ void    make_grille(t_env *e);
 void    make_fond(t_env *e);
 
 void    tab_processing(t_env *e);
+void    dead_or_alive_life(t_carre *square, int count);
+void    dead_or_alive_seeds(t_carre *square, int count);
 
 #endif

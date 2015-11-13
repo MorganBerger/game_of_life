@@ -6,8 +6,8 @@
 # include "carre.h"
 # include "color.h"
 
-# define HEIGHT 1200
-# define WIDTH 1200
+# define HEIGHT 1000
+# define WIDTH 1000
 
 # define TILE_S 5
 
@@ -39,8 +39,10 @@ typedef	struct		s_env
     t_color             fond;
     t_color             grille;
     t_color             square_color;
-    t_color             square_color2;
+    t_color             green;
     t_color             red;
+
+    void                (*f)(t_carre*, int);
 
 }		        t_env;
 
