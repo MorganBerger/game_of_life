@@ -82,5 +82,6 @@ launch: all; ./gol
 life: all; ./gol life
 seeds: all; ./gol seeds
 brain: all; ./gol brain
+flakes: all; ./gol flakes
 
 .PHONY: .clean .fclean

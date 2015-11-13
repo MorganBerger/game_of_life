@@ -26,17 +26,17 @@ void    draw(t_env *e)
         {
             if (e->tab[y][x].alive == 1)
             {
-                //if (e->tab[y][x].is_alive_next == 1)
+                if (e->tab[y][x].is_alive_next == 1)
                     set_color(e, e->square_color);
-                //else
-                //    set_color(e, e->red);
+                else
+                    set_color(e, e->red);
                 
                 put_filled_carre(e, e->tab[y][x]); 
             }
             else if (e->tab[y][x].is_alive_next == 1)
             {
-               // set_color(e, e->green); 
-               // put_filled_carre(e, e->tab[y][x]); 
+                set_color(e, e->green); 
+                put_filled_carre(e, e->tab[y][x]); 
             }
             x++;
         }
@@ -111,6 +111,8 @@ void    init_mlx(t_env *e, char *yo)
         e->f = dead_or_alive_seeds;
     else if (!strcmp(yo, "brain"))
         e->f = dead_or_alive_brain;
+    else if (!strcmp(yo, "flakes"))
+        e->f = dead_or_alive_flakes;
 
     set_env(e);
     e->mlx = mlx_init();    
