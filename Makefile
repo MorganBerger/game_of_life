@@ -83,5 +83,6 @@ life: all; ./gol life
 seeds: all; ./gol seeds
 brain: all; ./gol brain
 flakes: all; ./gol flakes
+maze: all; ./gol maze
 
 .PHONY: .clean .fclean

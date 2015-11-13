@@ -113,6 +113,8 @@ void    init_mlx(t_env *e, char *yo)
         e->f = dead_or_alive_brain;
     else if (!strcmp(yo, "flakes"))
         e->f = dead_or_alive_flakes;
+    else if (!strcmp(yo, "maze"))
+        e->f = dead_or_alive_maze;
 
     set_env(e);
     e->mlx = mlx_init();    

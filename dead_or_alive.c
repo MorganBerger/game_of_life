@@ -50,3 +50,18 @@ void    dead_or_alive_flakes(t_carre *c, int count)
     else
         c->is_alive_next = 0;
 }
+
+void    dead_or_alive_maze(t_carre *c, int count)
+{
+    if (c->alive == 1)
+    {
+        if (count >= 1 && count <= 4)
+            c->is_alive_next = 1;
+        else
+            c->is_alive_next = 0;
+    }
+    else if (count == 3)
+        c->is_alive_next = 1;
+    else
+        c->is_alive_next = 0;
+}
