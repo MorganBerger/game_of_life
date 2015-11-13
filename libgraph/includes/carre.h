@@ -12,6 +12,7 @@ typedef struct		s_carre
     
     int                 alive;
     int                 is_alive_next;
+    int                 was_alive;
 
 }			t_carre;
 

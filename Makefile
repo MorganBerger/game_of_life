@@ -80,7 +80,7 @@ re:		fclean all
 launch: all; ./gol
 
 life: all; ./gol life
-
 seeds: all; ./gol seeds
+brain: all; ./gol brain
 
 .PHONY: .clean .fclean

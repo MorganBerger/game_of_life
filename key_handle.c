@@ -37,6 +37,7 @@ void    change_state(t_env *e)
         x = 0;
         while (x < e->nb_col)
         {
+            e->tab[y][x].was_alive = e->tab[y][x].alive;
             e->tab[y][x].alive = e->tab[y][x].is_alive_next;
             e->tab[y][x].is_alive_next = 0;
             x++;
@@ -56,6 +57,7 @@ void    clear_grille(t_env *e)
         y = 0;
         while (y < e->nb_col)
         {
+            e->tab[i][y].was_alive = 0;
             e->tab[i][y].alive = 0;
             e->tab[i][y].is_alive_next = 0;
             y++;
