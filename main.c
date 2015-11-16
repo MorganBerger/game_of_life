@@ -126,6 +126,19 @@ void    init_mlx(t_env *e, char *yo)
     mlx_loop(e->mlx);
 }
 
+void    man(void)
+{
+    ft_putendl("-----------------------");
+    ft_putendl("usage: gol 'argument'");
+    ft_putendl("Argument list : ");
+    ft_putendl("- life");
+    ft_putendl("- seeds");
+    ft_putendl("- brain");
+    ft_putendl("- flakes");
+    ft_putendl("- maze"); 
+    ft_putendl("-----------------------");
+}
+
 int     main(int ac, char **av)
 {
     t_env   env;
@@ -138,5 +151,7 @@ int     main(int ac, char **av)
         srand(time(NULL));
         init_mlx(&env, av[1]);
     }
+    else
+        man();
     return (0);
 }
