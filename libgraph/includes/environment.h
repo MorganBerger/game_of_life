@@ -6,10 +6,10 @@
 # include "carre.h"
 # include "color.h"
 
-# define HEIGHT 1000
-# define WIDTH 1000
+# define HEIGHT 800
+# define WIDTH 800
 
-# define TILE_S 5
+# define TILE_S 3
 
 typedef	struct		s_env
 {
