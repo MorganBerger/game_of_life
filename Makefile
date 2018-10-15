@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mberger <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: mberger <mberger@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 19:31:04 by mberger           #+#    #+#              #
 #    Updated: 2015/06/02 00:07:40 by mberger          ###   ########.fr        #

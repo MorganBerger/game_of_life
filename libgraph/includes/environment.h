@@ -9,7 +9,7 @@
 # define HEIGHT 800
 # define WIDTH 800
 
-# define TILE_S 3
+# define TILE_S 8
 
 typedef	struct		s_env
 {
